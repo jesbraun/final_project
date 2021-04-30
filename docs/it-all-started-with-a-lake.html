@@ -4,27 +4,25 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 It all started with a lake | WILD 6900 Final Project</title>
-  <meta name="description" content="This is a my final coding project for the Utah State Universities coding class: WILD 6900 taught by Dr. Simona Picardi" />
+  <title>Chapter 2 It all started with a lake | final_project.utf8</title>
+  <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 It all started with a lake | WILD 6900 Final Project" />
+  <meta property="og:title" content="Chapter 2 It all started with a lake | final_project.utf8" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a my final coding project for the Utah State Universities coding class: WILD 6900 taught by Dr. Simona Picardi" />
+  
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 It all started with a lake | WILD 6900 Final Project" />
+  <meta name="twitter:title" content="Chapter 2 It all started with a lake | final_project.utf8" />
   
-  <meta name="twitter:description" content="This is a my final coding project for the Utah State Universities coding class: WILD 6900 taught by Dr. Simona Picardi" />
+  
   
 
-<meta name="author" content="Jes Braun" />
 
 
-<meta name="date" content="2021-04-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -80,7 +78,7 @@
 </ul></li>
 <li class="chapter" data-level="3" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>3</b> Results</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Powered by coffee</a></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">powered by coffee</a></li>
 
 </ul>
 
@@ -91,7 +89,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">WILD 6900 Final Project</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
           </h1>
         </div>
 
@@ -104,40 +102,45 @@
 <p><strong>and a dream</strong></p>
 <p>Wetlands are important to society, yet over half the global wetland area has been lost due to drainage, filling, native vegetation removal, invasive species, and hydrologic alterations. Restoration of wetlands is critical to recover lost ecosystem functions and services. Reestablishing native plant communities that contribute to ecosystem functioning is an important part of this process. Lacustrine wetlands, particularly those in the semi-arid Intermountain West region of the U.S., have experienced extensive hydrological alterations. They have sustained substantial water diversions and are commonly utilized as reservoirs, resulting in extreme changes in water levels that impact lakeshore vegetation.</p>
 <p>One highly altered system is Utah Lake, the location of my proposed research, in central Utah, USA. Utah Lake has vastly fluctuating water levels, and in some places, high wave energy and a large fetch. These dynamic wetland conditions challenge land managers aiming to reestablish lakeshore vegetation, particularly after removal of invasive vegetation.</p>
+<p>My research focuses on revegetation techniques. In this bookdown I suggest that by installing wave break structures on the shoreline of the lake to dissipate wave energy, and by planting in a ‘clumped’ planting arrangement, you can increase the success and survival of your plant species.</p>
 
 <div id="this-is-what-my-code-looked-like" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> This is what my code looked like</h2>
-<p>x &lt;- read.csv(“percent_survival.csv”)
-new_x &lt;- x %&gt;%
-group_by(plant_species, wave_break, planting_arrangment) %&gt;%
-mutate(mean = mean(percent_survival),
-lower = min(percent_survival),
-upper = max(percent_survival))
-load.packages
-library(tidyverse)</p>
-<p>boma &lt;- new_x %&gt;%
-filter(plant_species == “BOMA”)
-p1 &lt;- ggplot(boma) +
-geom_pointrange(mapping=aes(x=planting_arrangment, y=mean, ymin=upper, ymax=lower, color= wave_break),
-size=1, fill=“white,” shape=22, position=position_dodge(.1)) +
-theme_bw()+
-labs(x = “Planting Arrangements,”
-y = “Mean Percent Survival”)+
-theme(legend.position = “bottom”)+
-ggtitle(“Bolboschoenus maritimus”)</p>
-<p>disp &lt;- new_x %&gt;%
-filter(plant_species == “DISP”)
-p2 &lt;- ggplot(disp) +
-geom_pointrange(mapping=aes(x=planting_arrangment, y=mean, ymin=upper, ymax=lower, color= wave_break),
-size=1, fill=“white,” shape=22, position=position_dodge(.1)) +
-theme_bw()+
-labs(x = “Planting Arrangements,”
-y = “Mean Percent Survival”)+
-theme(legend.position = “bottom”)+
-ggtitle(“Distichlis spicata”)
-p2</p>
-<p>library(patchwork)
-p1 + theme(plot.title = element_text(face = “italic”))+p2 + theme(plot.title = element_text(face = “italic”))</p>
+<p>First I loaded the packages “tidyverse” and “patchwork” and loaded my dataset.</p>
+<pre><code>library(tidyverse)
+library(patchwork)
+x &lt;- read.csv(&quot;percent_survival.csv&quot;)</code></pre>
+<p>I grouped by plant species, wave break, and planting arrangement.</p>
+<pre><code>new_x &lt;- x %&gt;%
+  group_by(plant_species, wave_break, planting_arrangment) %&gt;%
+  mutate(mean = mean(percent_survival),
+         lower = min(percent_survival),
+         upper = max(percent_survival))</code></pre>
+<p>Then, I filtered the data down to one species, BOMA (<em>Bolboschoenus maritimus</em>) aka alkali bulrush.</p>
+<pre><code>boma &lt;- new_x %&gt;%
+  filter(plant_species == &quot;BOMA&quot;) 
+p1 &lt;- ggplot(boma) + 
+  geom_pointrange(mapping=aes(x=planting_arrangment, y=mean, ymin=upper, ymax=lower, color= wave_break), 
+                  size=1, fill=&quot;white&quot;, shape=22, position=position_dodge(.1)) +
+  theme_bw()+
+  labs(x = &quot;Planting Arrangements&quot;, 
+       y = &quot;Mean Percent Survival&quot;)+
+  theme(legend.position = &quot;bottom&quot;)+
+  ggtitle(&quot;Bolboschoenus maritimus&quot;)
+  </code></pre>
+<p>I repeated the same code, but this time for DISP (<em>Distichlis spicata</em>) aka saltgrass</p>
+<pre><code>disp &lt;- new_x %&gt;%
+  filter(plant_species == &quot;DISP&quot;) 
+p2 &lt;- ggplot(disp) + 
+  geom_pointrange(mapping=aes(x=planting_arrangment, y=mean, ymin=upper, ymax=lower, color= wave_break), 
+                  size=1, fill=&quot;white&quot;, shape=22, position=position_dodge(.1)) +
+  theme_bw()+
+  labs(x = &quot;Planting Arrangements&quot;, 
+       y = &quot;Mean Percent Survival&quot;)+
+  theme(legend.position = &quot;bottom&quot;)+
+  ggtitle(&quot;Distichlis spicata&quot;)</code></pre>
+<p>Lastly, I linked everything together using the patchwork package.</p>
+<pre><code>p1 + theme(plot.title = element_text(face = &quot;italic&quot;))+p2 + theme(plot.title = element_text(face = &quot;italic&quot;))</code></pre>
 <div id="this-is-my-schema" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> This is my schema</h3>
 <p><img src="https://github.com/jesbraun/utah_lake/blob/main/database_schema.png?raw=true" /></p>

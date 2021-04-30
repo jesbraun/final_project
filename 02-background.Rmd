@@ -1,14 +1,23 @@
 ## This is what my code looked like
-
+First I loaded the packages "tidyverse" and "patchwork" and loaded my dataset.
+```
+library(tidyverse)
+library(patchwork)
 x <- read.csv("percent_survival.csv")
+```
+I grouped by plant species, wave break, and planting arrangement.
+
+```
 new_x <- x %>%
   group_by(plant_species, wave_break, planting_arrangment) %>%
   mutate(mean = mean(percent_survival),
          lower = min(percent_survival),
          upper = max(percent_survival))
-load.packages
-library(tidyverse)
+```
 
+Then, I filtered the data down to one species, BOMA (*Bolboschoenus maritimus*) aka alkali bulrush.
+
+```
 boma <- new_x %>%
   filter(plant_species == "BOMA") 
 p1 <- ggplot(boma) + 
@@ -19,7 +28,11 @@ p1 <- ggplot(boma) +
        y = "Mean Percent Survival")+
   theme(legend.position = "bottom")+
   ggtitle("Bolboschoenus maritimus")
+  
+```
+I repeated the same code, but this time for DISP (*Distichlis spicata*) aka saltgrass
 
+```
 disp <- new_x %>%
   filter(plant_species == "DISP") 
 p2 <- ggplot(disp) + 
@@ -30,11 +43,12 @@ p2 <- ggplot(disp) +
        y = "Mean Percent Survival")+
   theme(legend.position = "bottom")+
   ggtitle("Distichlis spicata")
-p2
+```
+Lastly, I linked everything together using the patchwork package.
 
-library(patchwork)
+```
 p1 + theme(plot.title = element_text(face = "italic"))+p2 + theme(plot.title = element_text(face = "italic"))
-
+```
   
 ### This is my schema
 

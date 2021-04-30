@@ -5,5 +5,5 @@ bookdown::gitbook:
       before: |
         <li><a href="./">A Beautiful Book Example</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Powered by coffee</a></li>
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">powered by coffee</a></li>
     download: ["pdf", "epub"]
