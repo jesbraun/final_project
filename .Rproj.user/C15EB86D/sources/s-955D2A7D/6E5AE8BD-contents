@@ -1,0 +1,14 @@
+# It all started with a lake
+**and a dream**   
+
+BACKGROUND SECTION
+
+## This is what my code looked like
+
+  
+### This is my schema
+
+![](https://github.com/jesbraun/utah_lake/blob/main/database_schema.png?raw=true)
+  
+**bold**= primary key. Unique id for each record in that table  
+*Italics* = foreign key, a variable shared between tables
