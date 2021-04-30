@@ -5,4 +5,8 @@ Here is a graph showing my expected results.
 
 ![](https://github.com/jesbraun/utah_lake/blob/main/Wave_Break_Plots.png?raw=true)
 
+This graph looks at the effect of wave break structures on the establishment of plants and the effect of two planting arrangements: clumped and dispersed.  The current literature on restoration techniques suggests a clumped planting method (where the plant plugs are planted close together, the plugs are all touching one another) is most successful at establishing in a high stress environment.
+
+These data suggest that when coupled together, a wave break structure and clumped planting can increase establishment success of lacustrine wetland species.
+
 

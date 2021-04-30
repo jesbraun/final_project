@@ -35,7 +35,6 @@ p2
 library(patchwork)
 p1 + theme(plot.title = element_text(face = "italic"))+p2 + theme(plot.title = element_text(face = "italic"))
 
-
   
 ### This is my schema
 
@@ -43,3 +42,5 @@ p1 + theme(plot.title = element_text(face = "italic"))+p2 + theme(plot.title = e
   
 **bold**= primary key. Unique id for each record in that table  
 *Italics* = foreign key, a variable shared between tables
+
+This schema applies to my broader research questions.  For the purpose of this final, and my burgeoning coding skills, I have focused on one aspect of my research.
